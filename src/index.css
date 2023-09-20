@@ -1,4 +1,30 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(229, 24%, 87%);
+}
+
+.container {
+  display: flex;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  height: 70vh;
+  width: 60vw;
+}
+
+.step-container {
+  width: 30%;
+  height: 100%;
+  background-image: url("/bg-sidebar-desktop.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
