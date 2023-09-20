@@ -3,10 +3,10 @@ function App() {
     <div className="container">
       <div className="step-container">
         <div className="choice-container">
-          <button>1</button>
+          <button className="step-btn">1</button>
           <div>
-            <p>STEP 1</p>
-            <p>YOUR INFO</p>
+            <p className="step-number">STEP 1</p>
+            <p className="step-title">YOUR INFO</p>
           </div>
         </div>
       </div>

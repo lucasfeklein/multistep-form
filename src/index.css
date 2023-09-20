@@ -18,13 +18,13 @@ body {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  height: 70vh;
-  width: 60vw;
+  height: 600px;
+  width: 900px;
 }
 
 .step-container {
-  padding: 40px;
-  width: 30%;
+  padding: 40px 30px;
+  width: 40%;
   height: 100%;
   background-image: url("/bg-sidebar-desktop.svg");
   background-size: contain;
@@ -34,4 +34,28 @@ body {
 .choice-container {
   display: flex;
   gap: 14px;
+}
+
+.step-btn {
+  border-radius: 50%;
+  border: 1px solid white;
+  width: 35px;
+  background: none;
+  color: white;
+  cursor: pointer;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.step-number {
+  color: hsl(231, 11%, 63%);
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.step-title {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 14px;
 }
