@@ -10,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: hsl(229, 24%, 87%);
+  font-family: "Ubuntu", sans-serif;
 }
 
 .container {
