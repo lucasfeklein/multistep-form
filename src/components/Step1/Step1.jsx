@@ -2,34 +2,23 @@ import { Box, Button, Text, TextInput, Title } from "@mantine/core";
 import React, { useState } from "react";
 import classes from "./Step1.module.css";
 
-const Step1 = ({ handleClick, handleFormData }) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-  });
-
+const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
   const [formErrors, setFormErrors] = useState({
     name: false,
     email: false,
     phone: false,
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
   const handleNextStepClick = () => {
     // Validate the form before proceeding to the next step
     const newFormErrors = {};
-    if (!formData.name) {
+    if (!name) {
       newFormErrors.name = true;
     }
-    if (!formData.email) {
+    if (!email) {
       newFormErrors.email = true;
     }
-    if (!formData.phone) {
+    if (!phone) {
       newFormErrors.phone = true;
     }
 
@@ -52,8 +41,8 @@ const Step1 = ({ handleClick, handleFormData }) => {
           <TextInput
             mt={25}
             name="name"
-            value={formData.name}
-            onChange={handleInputChange}
+            value={name}
+            onChange={handleFormData}
             classNames={{ label: classes.label, input: classes.input }}
             label="Name"
             placeholder="John Doe"
@@ -68,8 +57,8 @@ const Step1 = ({ handleClick, handleFormData }) => {
           <TextInput
             mt={15}
             name="email"
-            value={formData.email}
-            onChange={handleInputChange}
+            value={email}
+            onChange={handleFormData}
             classNames={{ label: classes.label, input: classes.input }}
             label="Email Address"
             placeholder="example@example.com"
@@ -84,8 +73,8 @@ const Step1 = ({ handleClick, handleFormData }) => {
           <TextInput
             mt={15}
             name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
+            value={phone}
+            onChange={handleFormData}
             classNames={{ label: classes.label, input: classes.input }}
             label="Phone Number"
             placeholder="e.g. +1 234 567 890"

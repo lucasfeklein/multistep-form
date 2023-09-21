@@ -5,7 +5,13 @@ import { steps } from "./utils/variables";
 
 function App() {
   const [activeStep, setActiveStep] = useState(1);
-  const [formData, setFormData] = useState({ email: "", phone: "", name: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    phone: "",
+    name: "",
+  });
+
+  console.log(formData);
 
   const handleFormData = (e) => {
     setFormData((prevData) => ({
@@ -39,7 +45,13 @@ function App() {
             {...formData}
           />
         )}
-        {activeStep === 2 && <Step2 handleClick={handleClick} />}
+        {activeStep === 2 && (
+          <Step2
+            handleClick={handleClick}
+            {...formData}
+            handleFormData={handleFormData}
+          />
+        )}
         {activeStep === 3 && <Step3 handleClick={handleClick} />}
         {activeStep === 4 && <Step4 handleClick={handleClick} />}
       </div>
