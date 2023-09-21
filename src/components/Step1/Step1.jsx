@@ -1,5 +1,5 @@
 import { Box, Button, Text, TextInput, Title } from "@mantine/core";
-
+import classes from "./Step1.module.css";
 const labelStyle = {
   color: "hsl(213, 96%, 18%)",
   fontWeight: "400",
@@ -15,15 +15,7 @@ const inputStyle = {
 
 const Step1 = () => {
   return (
-    <Box
-      pt={30}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        height: "100%",
-      }}
-    >
+    <Box className={classes.container}>
       <Box>
         <Title style={{ color: "hsl(213, 96%, 18%)" }}>Personal info</Title>
         <Text color="hsl(231, 11%, 63%)">
@@ -31,17 +23,14 @@ const Step1 = () => {
         </Text>
         <TextInput
           mt={25}
-          styles={{
-            label: labelStyle,
-            input: inputStyle,
-          }}
+          classNames={{ label: classes.label, input: classes.input }}
           label="Name"
           placeholder="John Doe"
           type="text"
         />
         <TextInput
           mt={15}
-          styles={{ label: labelStyle, input: inputStyle }}
+          classNames={{ label: classes.label, input: classes.input }}
           label="Email Address"
           placeholder="example@example.com"
           type="email"
@@ -49,20 +38,13 @@ const Step1 = () => {
 
         <TextInput
           mt={15}
-          styles={{ label: labelStyle, input: inputStyle }}
+          classNames={{ label: classes.label, input: classes.input }}
           label="Phone Number"
           placeholder="e.g. +1 234 567 890"
           type="text"
         />
       </Box>
-      <Button
-        mb={20}
-        style={{
-          alignSelf: "end",
-          backgroundColor: "hsl(213, 96%, 18%)",
-          fontWeight: "500",
-        }}
-      >
+      <Button className={classes.button} mb={20}>
         Next Step
       </Button>
     </Box>

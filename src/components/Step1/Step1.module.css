@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 30px;
+  justify-content: space-between;
+}
+
+.label {
+  color: hsl(213, 96%, 18%);
+  font-weight: 400;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.input {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  padding: 20px 15px;
+  border-radius: 8px;
+}
+
+.input:focus {
+  border: 1px solid hsl(243, 100%, 62%);
+}
+
+.button {
+  align-self: flex-end;
+  background-color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+
+.button:hover {
+  background-color: hsl(213, 96%, 27%);
+}
