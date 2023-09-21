@@ -12,10 +12,8 @@ function App() {
   });
 
   const handleFormData = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      [e.target.name]: e.target.value,
-    }));
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleClick = (step) => {
