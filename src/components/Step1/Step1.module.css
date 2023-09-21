@@ -33,3 +33,12 @@
 .button:hover {
   background-color: hsl(213, 96%, 27%);
 }
+
+.error_message {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fb5252;
+  font-weight: bold;
+  font-size: 13px;
+}
