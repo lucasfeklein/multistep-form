@@ -1,7 +1,17 @@
 import { Box, Text, TextInput, Title } from "@mantine/core";
 
-const labelStyle = { color: "hsl(213, 96%, 18%)", fontWeight: "400" };
-const inputStyle = { color: "hsl(213, 96%, 18%)", fontWeight: "500" };
+const labelStyle = {
+  color: "hsl(213, 96%, 18%)",
+  fontWeight: "400",
+  marginBottom: "4px",
+  fontSize: "13px",
+};
+const inputStyle = {
+  color: "hsl(213, 96%, 18%)",
+  fontWeight: "500",
+  padding: "20px 15px",
+  borderRadius: "8px",
+};
 
 const Step1 = () => {
   return (
@@ -11,22 +21,25 @@ const Step1 = () => {
         Please provide your name, email address and phone number.
       </Text>
       <TextInput
+        mt={25}
         styles={{
           label: labelStyle,
-          input: { color: "hsl(213, 96%, 18%)", fontWeight: "500" },
+          input: inputStyle,
         }}
         label="Name"
         placeholder="John Doe"
         type="text"
       />
       <TextInput
-        styles={{ label: labelStyle }}
+        mt={15}
+        styles={{ label: labelStyle, input: inputStyle }}
         label="Email Address"
         placeholder="example@example.com"
         type="email"
       />
       <TextInput
-        styles={{ label: labelStyle }}
+        mt={15}
+        styles={{ label: labelStyle, input: inputStyle }}
         label="Phone Number"
         placeholder="e.g. +1 234 567 890"
         type="text"
