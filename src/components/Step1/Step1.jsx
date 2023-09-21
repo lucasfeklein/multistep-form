@@ -1,17 +1,5 @@
 import { Box, Button, Text, TextInput, Title } from "@mantine/core";
 import classes from "./Step1.module.css";
-const labelStyle = {
-  color: "hsl(213, 96%, 18%)",
-  fontWeight: "400",
-  marginBottom: "4px",
-  fontSize: "13px",
-};
-const inputStyle = {
-  color: "hsl(213, 96%, 18%)",
-  fontWeight: "500",
-  padding: "20px 15px",
-  borderRadius: "8px",
-};
 
 const Step1 = () => {
   return (
