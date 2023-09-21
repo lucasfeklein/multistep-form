@@ -86,8 +86,8 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
             onChange={handleFormData}
             classNames={{ label: classes.label, input: classes.input }}
             label="Phone Number"
-            placeholder="e.g. +1 234 567 890"
-            type="text"
+            placeholder="1 234 567 890"
+            type="number"
             error={Boolean(formErrors.phone)}
           />
           {formErrors.phone && (
