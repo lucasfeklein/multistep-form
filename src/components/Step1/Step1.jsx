@@ -4,22 +4,31 @@ import classes from "./Step1.module.css";
 
 const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
   const [formErrors, setFormErrors] = useState({
-    name: false,
-    email: false,
-    phone: false,
+    name: "",
+    email: "",
+    phone: "",
   });
+
+  // Function to validate email format
+  const isValidEmail = (email) => {
+    // Use a regular expression to validate email format
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  };
 
   const handleNextStepClick = () => {
     // Validate the form before proceeding to the next step
     const newFormErrors = {};
     if (!name) {
-      newFormErrors.name = true;
+      newFormErrors.name = "This field is required";
     }
     if (!email) {
-      newFormErrors.email = true;
+      newFormErrors.email = "This field is required";
+    } else if (!isValidEmail(email)) {
+      newFormErrors.email = "Email not valid";
     }
     if (!phone) {
-      newFormErrors.phone = true;
+      newFormErrors.phone = "This field is required";
     }
 
     // If there are errors, set them in the formErrors state
@@ -47,10 +56,10 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
             label="Name"
             placeholder="John Doe"
             type="text"
-            error={formErrors.name} // Set the error prop
+            error={Boolean(formErrors.name)}
           />
           {formErrors.name && (
-            <Box className={classes.error_message}>This field is required</Box>
+            <Box className={classes.error_message}>{formErrors.name}</Box>
           )}
         </div>
         <div style={{ position: "relative" }}>
@@ -63,10 +72,10 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
             label="Email Address"
             placeholder="example@example.com"
             type="email"
-            error={formErrors.email} // Set the error prop
+            error={Boolean(formErrors.email)}
           />
           {formErrors.email && (
-            <Box className={classes.error_message}>This field is required</Box>
+            <Box className={classes.error_message}>{formErrors.email}</Box>
           )}
         </div>
         <div style={{ position: "relative" }}>
@@ -79,10 +88,10 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
             label="Phone Number"
             placeholder="e.g. +1 234 567 890"
             type="text"
-            error={formErrors.phone} // Set the error prop
+            error={Boolean(formErrors.phone)}
           />
           {formErrors.phone && (
-            <Box className={classes.error_message}>This field is required</Box>
+            <Box className={classes.error_message}>{formErrors.phone}</Box>
           )}
         </div>
       </Box>
