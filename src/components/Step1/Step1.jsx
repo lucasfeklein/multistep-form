@@ -1,7 +1,11 @@
 import { Box, Button, Text, TextInput, Title } from "@mantine/core";
 import classes from "./Step1.module.css";
 
-const Step1 = () => {
+const Step1 = ({ handleClick }) => {
+  const handleNextStepClick = () => {
+    handleClick(2);
+  };
+
   return (
     <Box className={classes.container}>
       <Box>
@@ -32,7 +36,7 @@ const Step1 = () => {
           type="text"
         />
       </Box>
-      <Button className={classes.button} mb={20}>
+      <Button onClick={handleNextStepClick} className={classes.button} mb={20}>
         Next Step
       </Button>
     </Box>

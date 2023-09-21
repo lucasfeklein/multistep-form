@@ -24,10 +24,10 @@ function App() {
         ))}
       </div>
       <div className="plan-container">
-        {activeStep === 1 && <Step1 />}
-        {activeStep === 2 && <Step2 />}
-        {activeStep === 3 && <Step3 />}
-        {activeStep === 4 && <Step4 />}
+        {activeStep === 1 && <Step1 handleClick={handleClick} />}
+        {activeStep === 2 && <Step2 handleClick={handleClick} />}
+        {activeStep === 3 && <Step3 handleClick={handleClick} />}
+        {activeStep === 4 && <Step4 handleClick={handleClick} />}
       </div>
     </div>
   );
