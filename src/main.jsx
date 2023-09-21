@@ -7,7 +7,7 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <MantineProvider>
+    <MantineProvider theme={{ fontFamily: "Ubuntu, sans-serif" }}>
       <App />
     </MantineProvider>
   </React.StrictMode>
