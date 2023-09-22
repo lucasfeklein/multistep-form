@@ -24,11 +24,16 @@ body {
 
 .sidebar-container {
   padding: 40px 30px;
-  width: 40%;
+  width: 70%;
   height: 100%;
   background-image: url("/bg-sidebar-desktop.svg");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.plan-container {
+  width: 100%;
+  margin-right: 70px;
 }
 
 .choice-container {
@@ -63,10 +68,6 @@ p {
   line-height: 18px;
   color: hsl(231, 11%, 63%);
   font-size: 14px;
-}
-
-.plan-container {
-  width: 55%;
 }
 
 h2 {

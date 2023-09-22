@@ -7,7 +7,7 @@
 }
 
 .next_button {
-  background-color: hsl(213, 96%, 18%);
+  background-color: hsl(243, 100%, 62%);
   font-weight: 500;
 }
 
@@ -17,9 +17,19 @@
 }
 
 .next_button:hover {
-  background-color: hsl(213, 96%, 27%);
+  background-color: hsla(243, 100%, 62%, 0.678);
 }
 
 .back_button:hover {
   color: hsl(213, 96%, 27%);
+}
+
+.change_button {
+  margin-top: 5px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.change_button:hover {
+  color: hsl(243, 100%, 62%);
 }
