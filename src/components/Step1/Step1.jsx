@@ -50,7 +50,7 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
           <TextInput
             name="name"
             value={name}
-            onChange={handleFormData}
+            onChange={(e) => handleFormData(e.target.name, e.target.value)}
             classNames={{ label: classes.label, input: classes.input }}
             label="Name"
             placeholder="John Doe"
@@ -66,7 +66,7 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
             mt={15}
             name="email"
             value={email}
-            onChange={handleFormData}
+            onChange={(e) => handleFormData(e.target.name, e.target.value)}
             classNames={{ label: classes.label, input: classes.input }}
             label="Email Address"
             placeholder="example@example.com"
@@ -82,7 +82,7 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
             mt={15}
             name="phone"
             value={phone}
-            onChange={handleFormData}
+            onChange={(e) => handleFormData(e.target.name, e.target.value)}
             classNames={{ label: classes.label, input: classes.input }}
             label="Phone Number"
             placeholder="1 234 567 890"

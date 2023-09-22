@@ -12,8 +12,7 @@ function App() {
     plan: "arcade",
   });
 
-  const handleFormData = (e) => {
-    const { name, value } = e.target;
+  const handleFormData = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
 
