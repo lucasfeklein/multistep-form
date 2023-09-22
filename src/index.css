@@ -73,3 +73,7 @@ h2 {
   color: hsl(213, 96%, 27%);
   font-size: 18px;
 }
+
+input[type="checkbox"] {
+  accent-color: hsl(213, 96%, 27%);
+}
