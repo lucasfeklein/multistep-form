@@ -10,6 +10,7 @@ function App() {
     phone: "",
     name: "",
     plan: "arcade",
+    planDuration: "month",
   });
 
   const handleFormData = (name, value) => {

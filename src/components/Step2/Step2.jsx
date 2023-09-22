@@ -8,16 +8,24 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Step2.module.css";
 
 const Step2 = ({ handleClick, plan, handleFormData }) => {
+  const [checked, setChecked] = useState(false);
   const handleNextStepClick = () => {
     handleClick(3);
   };
   const handleBackStepClick = () => {
     handleClick(1);
   };
+
+  const handleSwitch = (e) => {
+    const duration = e.currentTarget.checked ? "year" : "month";
+    handleFormData("planDuration", duration);
+    setChecked(e.currentTarget.checked);
+  };
+
   return (
     <Box className={classes.container}>
       <Box>
@@ -70,6 +78,8 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
         >
           <p>Montly</p>
           <Switch
+            checked={checked}
+            onChange={handleSwitch}
             styles={{
               track: { backgroundColor: "hsl(213, 96%, 18%)", border: "none" },
             }}
