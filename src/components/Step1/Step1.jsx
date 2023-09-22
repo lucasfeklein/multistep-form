@@ -95,10 +95,17 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
           )}
         </div>
       </Box>
-
-      <Button onClick={handleNextStepClick} className={classes.button} mb={20}>
-        Next Step
-      </Button>
+      <Box
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginBottom: "20px",
+        }}
+      >
+        <Button onClick={handleNextStepClick} className={classes.next_button}>
+          Next Step
+        </Button>
+      </Box>
     </Box>
   );
 };

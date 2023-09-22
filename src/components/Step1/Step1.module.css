@@ -24,13 +24,12 @@
   border: 1px solid hsl(243, 100%, 62%);
 }
 
-.button {
-  align-self: flex-end;
+.next_button {
   background-color: hsl(213, 96%, 18%);
   font-weight: 500;
 }
 
-.button:hover {
+.next_button:hover {
   background-color: hsl(213, 96%, 27%);
 }
 
