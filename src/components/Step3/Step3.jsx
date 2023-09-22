@@ -37,7 +37,9 @@ const Step3 = ({ handleClick, handleFormData, addOns }) => {
           {addOns.map((addOn) => (
             <Card
               key={addOn.name}
-              className={classes.card}
+              className={`${classes.card} ${
+                addOn.isSelected ? classes.active_checkbox : ""
+              }`}
               onClick={() => handleCheckboxChange(addOn.name)}
             >
               <Flex gap={20}>
