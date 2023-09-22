@@ -11,6 +11,12 @@ import {
 import React, { useState } from "react";
 import classes from "./Step2.module.css";
 
+const plans = [
+  { icon: "/icon-arcade.svg", name: "Arcade", price: 9 },
+  { icon: "/icon-advanced.svg", name: "Advanced", price: 12 },
+  { icon: "/icon-pro.svg", name: "Pro", price: 20 },
+];
+
 const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {
   const [checked, setChecked] = useState(false);
   const handleNextStepClick = () => {
@@ -34,54 +40,25 @@ const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {
           You have the choice of monthly or yearly billing.
         </Text>
         <Box style={{ marginTop: "25px", display: "flex", gap: "20px" }}>
-          <Card
-            onClick={() => handleFormData("plan", "arcade")}
-            className={`${classes.card} ${
-              plan === "arcade" ? classes.active_card : ""
-            }`}
-          >
-            <Image src="./icon-arcade.svg" w={40} mb={50} />
-            <h2>Arcade</h2>
-            <p>
-              ${planDuration === "month" ? "9" : "90"}/
-              {planDuration === "month" ? "mo" : "yr"}
-            </p>
-            {planDuration === "year" && (
-              <p style={{ color: "hsl(213, 96%, 18%)" }}>2 months free</p>
-            )}
-          </Card>
-          <Card
-            onClick={() => handleFormData("plan", "advanced")}
-            className={`${classes.card} ${
-              plan === "advanced" ? classes.active_card : ""
-            }`}
-          >
-            <Image src="./icon-advanced.svg" w={40} mb={50} />
-            <h2>Advanced</h2>
-            <p>
-              ${planDuration === "month" ? "12" : "120"}/
-              {planDuration === "month" ? "mo" : "yr"}
-            </p>
-            {planDuration === "year" && (
-              <p style={{ color: "hsl(213, 96%, 18%)" }}>2 months free</p>
-            )}
-          </Card>
-          <Card
-            onClick={() => handleFormData("plan", "pro")}
-            className={`${classes.card} ${
-              plan === "pro" ? classes.active_card : ""
-            }`}
-          >
-            <Image src="./icon-pro.svg" w={40} mb={50} />
-            <h2>Pro</h2>
-            <p>
-              ${planDuration === "month" ? "15" : "150"}/
-              {planDuration === "month" ? "mo" : "yr"}
-            </p>
-            {planDuration === "year" && (
-              <p style={{ color: "hsl(213, 96%, 18%)" }}>2 months free</p>
-            )}
-          </Card>
+          {plans.map((planObj) => (
+            <Card
+              key={plan.name}
+              onClick={() => handleFormData("plan", planObj.name)}
+              className={`${classes.card} ${
+                plan === planObj.name ? classes.active_card : ""
+              }`}
+            >
+              <Image src={planObj.icon} w={40} mb={50} />
+              <h2>{planObj.name}</h2>
+              <p>
+                ${planDuration === "month" ? planObj.price : planObj.price * 10}
+                /{planDuration === "month" ? "mo" : "yr"}
+              </p>
+              {planDuration === "year" && (
+                <p style={{ color: "hsl(213, 96%, 18%)" }}>2 months free</p>
+              )}
+            </Card>
+          ))}
         </Box>
         <Flex
           style={{

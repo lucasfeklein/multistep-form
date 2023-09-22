@@ -9,7 +9,7 @@ function App() {
     email: "",
     phone: "",
     name: "",
-    plan: "arcade",
+    plan: "Arcade",
     planDuration: "month",
     addOns: [
       {
