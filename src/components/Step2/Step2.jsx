@@ -8,7 +8,7 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Step2.module.css";
 
 const plans = [
@@ -18,7 +18,6 @@ const plans = [
 ];
 
 const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {
-  const [checked, setChecked] = useState(false);
   const handleNextStepClick = () => {
     handleClick(3);
   };
@@ -42,7 +41,7 @@ const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {
         <Box style={{ marginTop: "25px", display: "flex", gap: "20px" }}>
           {plans.map((planObj) => (
             <Card
-              key={plan.name}
+              key={planObj.name}
               onClick={() => handleFormData("plan", planObj.name)}
               className={`${classes.card} ${
                 plan === planObj.name ? classes.active_card : ""
@@ -80,7 +79,7 @@ const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {
             Montly
           </p>
           <Switch
-            checked={checked}
+            checked={planDuration === "month" ? false : true}
             onChange={handleSwitch}
             styles={{
               track: { backgroundColor: "hsl(213, 96%, 18%)", border: "none" },
