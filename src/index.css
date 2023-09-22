@@ -76,4 +76,5 @@ h2 {
 
 input[type="checkbox"] {
   accent-color: hsl(213, 96%, 27%);
+  cursor: pointer;
 }

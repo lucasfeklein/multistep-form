@@ -11,6 +11,26 @@ function App() {
     name: "",
     plan: "arcade",
     planDuration: "month",
+    addOns: [
+      {
+        name: "Online service",
+        description: "Access to multiplayer games",
+        price: 1,
+        isSelected: false,
+      },
+      {
+        name: "Larger storage",
+        description: "Extra 1TB of cloud save",
+        price: 2,
+        isSelected: false,
+      },
+      {
+        name: "Customizable profile",
+        description: "Custom theme on your profile",
+        price: 2,
+        isSelected: false,
+      },
+    ],
   });
 
   const handleFormData = (name, value) => {
