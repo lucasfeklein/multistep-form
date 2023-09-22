@@ -1,4 +1,13 @@
-import { Box, Button, Card, Image, Text, Title } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Card,
+  Flex,
+  Image,
+  Switch,
+  Text,
+  Title,
+} from "@mantine/core";
 import React from "react";
 import classes from "./Step2.module.css";
 
@@ -18,6 +27,7 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
         </Text>
         <Box style={{ marginTop: "25px", display: "flex", gap: "20px" }}>
           <Card
+            onClick={() => handleFormData("plan", "arcade")}
             className={`${classes.card} ${
               plan === "arcade" ? classes.active_card : ""
             }`}
@@ -27,6 +37,7 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
             <p>$9/mo</p>
           </Card>
           <Card
+            onClick={() => handleFormData("plan", "advanced")}
             className={`${classes.card} ${
               plan === "advanced" ? classes.active_card : ""
             }`}
@@ -36,6 +47,7 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
             <p>$12/mo</p>
           </Card>
           <Card
+            onClick={() => handleFormData("plan", "pro")}
             className={`${classes.card} ${
               plan === "pro" ? classes.active_card : ""
             }`}
@@ -45,6 +57,25 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
             <p>$15/mo</p>
           </Card>
         </Box>
+        <Flex
+          style={{
+            backgroundColor: "hsla(243, 100%, 62%, 0.05)",
+            padding: "10px 0",
+            borderRadius: "5px",
+            marginTop: "30px",
+          }}
+          gap={20}
+          align={"center"}
+          justify={"center"}
+        >
+          <p>Montly</p>
+          <Switch
+            styles={{
+              track: { backgroundColor: "hsl(213, 96%, 18%)", border: "none" },
+            }}
+          />
+          <p>Yearly</p>
+        </Flex>
       </Box>
 
       <Box
