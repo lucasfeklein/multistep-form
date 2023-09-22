@@ -39,13 +39,3 @@
 .back_button:hover {
   color: hsl(213, 96%, 27%);
 }
-
-h2 {
-  color: hsl(213, 96%, 27%);
-  font-size: 18px;
-}
-
-p {
-  color: hsl(231, 11%, 63%);
-  font-size: 14px;
-}

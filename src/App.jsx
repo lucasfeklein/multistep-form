@@ -49,8 +49,20 @@ function App() {
             {...formData}
           />
         )}
-        {activeStep === 3 && <Step3 handleClick={handleClick} />}
-        {activeStep === 4 && <Step4 handleClick={handleClick} />}
+        {activeStep === 3 && (
+          <Step3
+            handleClick={handleClick}
+            handleFormData={handleFormData}
+            {...formData}
+          />
+        )}
+        {activeStep === 4 && (
+          <Step4
+            handleClick={handleClick}
+            handleFormData={handleFormData}
+            {...formData}
+          />
+        )}
       </div>
     </div>
   );
