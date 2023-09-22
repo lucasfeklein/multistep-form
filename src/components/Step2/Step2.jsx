@@ -14,7 +14,7 @@ import classes from "./Step2.module.css";
 const plans = [
   { icon: "/icon-arcade.svg", name: "Arcade", price: 9 },
   { icon: "/icon-advanced.svg", name: "Advanced", price: 12 },
-  { icon: "/icon-pro.svg", name: "Pro", price: 20 },
+  { icon: "/icon-pro.svg", name: "Pro", price: 15 },
 ];
 
 const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {

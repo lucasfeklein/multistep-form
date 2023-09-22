@@ -2,7 +2,16 @@ import { Box, Button, Flex, Text, Title } from "@mantine/core";
 import React from "react";
 import classes from "./Step4.module.css";
 
-const Step4 = ({ handleClick, handleFormData }) => {
+const planPrices = {
+  Arcade: 9,
+  Advanced: 12,
+  Pro: 15,
+};
+
+const Step4 = ({ handleClick, handleFormData, plan, addOns, planDuration }) => {
+  const planPrice =
+    planDuration === "month" ? planPrices[plan] : planPrices[plan] * 10;
+  const selectedAddOns = addOns.filter((addOn) => addOn.isSelected);
   const handleBackStepClick = () => {
     handleClick(3);
   };
@@ -37,7 +46,7 @@ const Step4 = ({ handleClick, handleFormData }) => {
             >
               <Box>
                 <p style={{ color: "hsl(213, 96%, 18%)", fontWeight: "bold" }}>
-                  Arcade (Monthly)
+                  {plan} ({planDuration === "month" ? "Monthly" : "Yearly"})
                 </p>
                 <p
                   onClick={() => handleClick(2)}
@@ -47,24 +56,26 @@ const Step4 = ({ handleClick, handleFormData }) => {
                 </p>
               </Box>
               <p style={{ color: "hsl(213, 96%, 18%)", fontWeight: "bold" }}>
-                $9/mo
+                ${planPrice}/{planDuration === "month" ? "mo" : "yr"}
               </p>
             </Flex>
 
             <Flex direction="column" gap={10} mt={15}>
-              <Flex justify="space-between">
-                <p>Online services</p>
-                <p style={{ color: "hsl(213, 96%, 18%)" }}>+$1/mo</p>
-              </Flex>
-              <Flex justify="space-between">
-                <p>Larger storage</p>
-                <p style={{ color: "hsl(213, 96%, 18%)" }}>+$2/mo</p>
-              </Flex>
+              {selectedAddOns.map((addOn) => (
+                <Flex justify="space-between" key={addOn.name}>
+                  <p>{addOn.name}</p>
+                  <p style={{ color: "hsl(213, 96%, 18%)" }}>
+                    +$
+                    {planDuration === "month" ? addOn.price : addOn.price * 10}
+                    /mo
+                  </p>
+                </Flex>
+              ))}
             </Flex>
           </Box>
 
           <Flex justify="space-between" px={20}>
-            <p>Total (per month)</p>
+            <p>Total (per {planDuration === "month" ? "month" : "year"})</p>
             <p
               style={{
                 fontSize: "16px",
