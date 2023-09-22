@@ -9,6 +9,7 @@ function App() {
     email: "",
     phone: "",
     name: "",
+    plan: "arcade",
   });
 
   const handleFormData = (e) => {
@@ -41,7 +42,13 @@ function App() {
             {...formData}
           />
         )}
-        {activeStep === 2 && <Step2 handleClick={handleClick} />}
+        {activeStep === 2 && (
+          <Step2
+            handleClick={handleClick}
+            handleFormData={handleFormData}
+            {...formData}
+          />
+        )}
         {activeStep === 3 && <Step3 handleClick={handleClick} />}
         {activeStep === 4 && <Step4 handleClick={handleClick} />}
       </div>

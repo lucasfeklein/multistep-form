@@ -6,6 +6,22 @@
   justify-content: space-between;
 }
 
+.card {
+  border: 1px solid hsl(229, 24%, 87%);
+  flex: 1;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.active_card {
+  background-color: hsla(243, 100%, 62%, 0.05);
+  border-color: hsl(243, 100%, 62%);
+}
+
+.card:hover {
+  border-color: hsl(243, 100%, 62%);
+}
+
 .next_button {
   background-color: hsl(213, 96%, 18%);
   font-weight: 500;
@@ -22,4 +38,14 @@
 
 .back_button:hover {
   color: hsl(213, 96%, 27%);
+}
+
+h2 {
+  color: hsl(213, 96%, 27%);
+  font-size: 18px;
+}
+
+p {
+  color: hsl(231, 11%, 63%);
+  font-size: 14px;
 }
