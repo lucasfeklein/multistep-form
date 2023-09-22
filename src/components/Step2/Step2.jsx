@@ -11,7 +11,7 @@ import {
 import React, { useState } from "react";
 import classes from "./Step2.module.css";
 
-const Step2 = ({ handleClick, plan, handleFormData }) => {
+const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {
   const [checked, setChecked] = useState(false);
   const handleNextStepClick = () => {
     handleClick(3);
@@ -40,9 +40,15 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
               plan === "arcade" ? classes.active_card : ""
             }`}
           >
-            <Image src="./icon-arcade.svg" w={35} mb={50} />
+            <Image src="./icon-arcade.svg" w={40} mb={50} />
             <h2>Arcade</h2>
-            <p>$9/mo</p>
+            <p>
+              ${planDuration === "month" ? "9" : "90"}/
+              {planDuration === "month" ? "mo" : "yr"}
+            </p>
+            {planDuration === "year" && (
+              <p style={{ color: "hsl(213, 96%, 18%)" }}>2 months free</p>
+            )}
           </Card>
           <Card
             onClick={() => handleFormData("plan", "advanced")}
@@ -50,9 +56,15 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
               plan === "advanced" ? classes.active_card : ""
             }`}
           >
-            <Image src="./icon-advanced.svg" w={35} mb={50} />
+            <Image src="./icon-advanced.svg" w={40} mb={50} />
             <h2>Advanced</h2>
-            <p>$12/mo</p>
+            <p>
+              ${planDuration === "month" ? "12" : "120"}/
+              {planDuration === "month" ? "mo" : "yr"}
+            </p>
+            {planDuration === "year" && (
+              <p style={{ color: "hsl(213, 96%, 18%)" }}>2 months free</p>
+            )}
           </Card>
           <Card
             onClick={() => handleFormData("plan", "pro")}
@@ -60,9 +72,15 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
               plan === "pro" ? classes.active_card : ""
             }`}
           >
-            <Image src="./icon-pro.svg" w={35} mb={50} />
+            <Image src="./icon-pro.svg" w={40} mb={50} />
             <h2>Pro</h2>
-            <p>$15/mo</p>
+            <p>
+              ${planDuration === "month" ? "15" : "150"}/
+              {planDuration === "month" ? "mo" : "yr"}
+            </p>
+            {planDuration === "year" && (
+              <p style={{ color: "hsl(213, 96%, 18%)" }}>2 months free</p>
+            )}
           </Card>
         </Box>
         <Flex
@@ -76,7 +94,14 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
           align={"center"}
           justify={"center"}
         >
-          <p>Montly</p>
+          <p
+            style={{
+              color: planDuration === "month" ? "hsl(213, 96%, 18%)" : "",
+              fontWeight: "bold",
+            }}
+          >
+            Montly
+          </p>
           <Switch
             checked={checked}
             onChange={handleSwitch}
@@ -84,7 +109,14 @@ const Step2 = ({ handleClick, plan, handleFormData }) => {
               track: { backgroundColor: "hsl(213, 96%, 18%)", border: "none" },
             }}
           />
-          <p>Yearly</p>
+          <p
+            style={{
+              color: planDuration === "year" ? "hsl(213, 96%, 18%)" : "",
+              fontWeight: "bold",
+            }}
+          >
+            Yearly
+          </p>
         </Flex>
       </Box>
 
