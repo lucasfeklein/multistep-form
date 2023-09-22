@@ -46,9 +46,8 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
         <Text style={{ color: "hsl(231, 11%, 63%)" }}>
           Please provide your name, email address, and phone number.
         </Text>
-        <div style={{ position: "relative" }}>
+        <Box style={{ position: "relative", marginTop: "25px" }}>
           <TextInput
-            mt={25}
             name="name"
             value={name}
             onChange={handleFormData}
@@ -61,8 +60,8 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
           {formErrors.name && (
             <Box className={classes.error_message}>{formErrors.name}</Box>
           )}
-        </div>
-        <div style={{ position: "relative" }}>
+        </Box>
+        <Box style={{ position: "relative" }}>
           <TextInput
             mt={15}
             name="email"
@@ -77,7 +76,7 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
           {formErrors.email && (
             <Box className={classes.error_message}>{formErrors.email}</Box>
           )}
-        </div>
+        </Box>
         <div style={{ position: "relative" }}>
           <TextInput
             mt={15}

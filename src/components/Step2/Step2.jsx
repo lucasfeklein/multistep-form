@@ -10,10 +10,11 @@ const Step2 = ({ handleClick }) => {
   return (
     <Box className={classes.container}>
       <Box>
-        <Title style={{ color: "hsl(213, 96%, 18%)" }}>Personal info</Title>
+        <Title style={{ color: "hsl(213, 96%, 18%)" }}>Select your plan</Title>
         <Text style={{ color: "hsl(231, 11%, 63%)" }}>
-          Please provide your name, email address, and phone number.
+          You have the choice of monthly or yearly billing.
         </Text>
+        <Box style={{ marginTop: "25px" }}></Box>
       </Box>
 
       <Box
