@@ -21,8 +21,20 @@ const Step4 = ({ handleClick, handleFormData }) => {
             flexDirection: "column",
           }}
         >
-          <Box>
-            <Flex justify="space-between">
+          <Box
+            style={{
+              backgroundColor: "hsla(243, 100%, 62%, 0.05)",
+              padding: "20px",
+              borderRadius: "5px",
+            }}
+          >
+            <Flex
+              justify="space-between"
+              style={{
+                borderBottom: "1px solid hsl(229, 24%, 87%)",
+                paddingBottom: "20px",
+              }}
+            >
               <Box>
                 <p style={{ color: "hsl(213, 96%, 18%)", fontWeight: "bold" }}>
                   Arcade (Monthly)
@@ -38,7 +50,31 @@ const Step4 = ({ handleClick, handleFormData }) => {
                 $9/mo
               </p>
             </Flex>
+
+            <Flex direction="column" gap={10} mt={15}>
+              <Flex justify="space-between">
+                <p>Online services</p>
+                <p style={{ color: "hsl(213, 96%, 18%)" }}>+$1/mo</p>
+              </Flex>
+              <Flex justify="space-between">
+                <p>Larger storage</p>
+                <p style={{ color: "hsl(213, 96%, 18%)" }}>+$2/mo</p>
+              </Flex>
+            </Flex>
           </Box>
+
+          <Flex justify="space-between" px={20}>
+            <p>Total (per month)</p>
+            <p
+              style={{
+                fontSize: "16px",
+                color: "hsl(243, 100%, 62%)",
+                fontWeight: "bold",
+              }}
+            >
+              +$12/mo
+            </p>
+          </Flex>
         </Box>
       </Box>
 
