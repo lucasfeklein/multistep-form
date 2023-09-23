@@ -28,7 +28,6 @@ const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {
   const handleSwitch = (e) => {
     const duration = e.currentTarget.checked ? "year" : "month";
     handleFormData("planDuration", duration);
-    setChecked(e.currentTarget.checked);
   };
 
   return (
