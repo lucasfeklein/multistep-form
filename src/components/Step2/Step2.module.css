@@ -11,6 +11,7 @@
   flex: 1;
   border-radius: 10px;
   cursor: pointer;
+  gap: 50px;
 }
 
 .active_card {
@@ -38,4 +39,22 @@
 
 .back_button:hover {
   color: hsl(213, 96%, 27%);
+}
+
+.card_container {
+  display: flex;
+  margin-top: 25px;
+  gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .card_container {
+    flex-direction: column;
+  }
+
+  .card {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
 }

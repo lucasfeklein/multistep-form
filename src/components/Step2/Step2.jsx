@@ -38,7 +38,7 @@ const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {
         <Text style={{ color: "hsl(231, 11%, 63%)" }}>
           You have the choice of monthly or yearly billing.
         </Text>
-        <Box style={{ marginTop: "25px", display: "flex", gap: "20px" }}>
+        <Box className={classes.card_container}>
           {plans.map((planObj) => (
             <Card
               key={planObj.name}
@@ -47,15 +47,20 @@ const Step2 = ({ handleClick, plan, handleFormData, planDuration }) => {
                 plan === planObj.name ? classes.active_card : ""
               }`}
             >
-              <Image src={planObj.icon} w={40} mb={50} />
-              <h2>{planObj.name}</h2>
-              <p>
-                ${planDuration === "month" ? planObj.price : planObj.price * 10}
-                /{planDuration === "month" ? "mo" : "yr"}
-              </p>
-              {planDuration === "year" && (
-                <p style={{ color: "hsl(213, 96%, 18%)" }}>2 months free</p>
-              )}
+              <Image src={planObj.icon} w={40} className={classes.image} />
+              <Box>
+                <h2>{planObj.name}</h2>
+                <p>
+                  $
+                  {planDuration === "month"
+                    ? planObj.price
+                    : planObj.price * 10}
+                  /{planDuration === "month" ? "mo" : "yr"}
+                </p>
+                {planDuration === "year" && (
+                  <p style={{ color: "hsl(213, 96%, 18%)" }}>2 months free</p>
+                )}
+              </Box>
             </Card>
           ))}
         </Box>
