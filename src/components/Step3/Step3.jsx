@@ -59,13 +59,7 @@ const Step3 = ({ handleClick, handleFormData, addOns }) => {
         </Box>
       </Box>
 
-      <Box
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "20px",
-        }}
-      >
+      <Box className="travel-steps-container">
         <Button onClick={handleBackStepClick} className={classes.back_button}>
           Go Back
         </Button>

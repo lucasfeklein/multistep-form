@@ -94,13 +94,7 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
           )}
         </div>
       </Box>
-      <Box
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "20px",
-        }}
-      >
+      <Box className="travel-steps-container">
         <p></p>
         <Button onClick={handleNextStepClick} className={classes.next_button}>
           Next Step
