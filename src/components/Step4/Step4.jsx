@@ -8,24 +8,55 @@ const planPrices = {
   Pro: 15,
 };
 
-const Step4 = ({ handleClick, handleFormData, plan, addOns, planDuration }) => {
+const PlanDetails = ({ plan, planDuration, planPrice, handleClick }) => (
+  <Flex
+    justify="space-between"
+    style={{
+      borderBottom: "1px solid hsl(229, 24%, 87%)",
+      paddingBottom: "20px",
+    }}
+  >
+    <Box>
+      <p style={{ color: "hsl(213, 96%, 18%)", fontWeight: "bold" }}>
+        {plan} ({planDuration === "month" ? "Monthly" : "Yearly"})
+      </p>
+      <p onClick={() => handleClick(2)} className={classes.change_button}>
+        Change
+      </p>
+    </Box>
+    <p style={{ color: "hsl(213, 96%, 18%)", fontWeight: "bold" }}>
+      ${planPrice}/{planDuration === "month" ? "mo" : "yr"}
+    </p>
+  </Flex>
+);
+
+const AddOnDetails = ({ selectedAddOns, planDuration }) => (
+  <Flex direction="column" gap={10} mt={15}>
+    {selectedAddOns.map((addOn) => (
+      <Flex justify="space-between" key={addOn.name}>
+        <p>{addOn.name}</p>
+        <p style={{ color: "hsl(213, 96%, 18%)" }}>
+          +${planDuration === "month" ? addOn.price : addOn.price * 10}/mo
+        </p>
+      </Flex>
+    ))}
+  </Flex>
+);
+
+const Step4 = ({ handleClick, plan, addOns, planDuration }) => {
   const planPrice =
     planDuration === "month" ? planPrices[plan] : planPrices[plan] * 10;
   const selectedAddOns = addOns.filter((addOn) => addOn.isSelected);
+  const totalPrice = selectedAddOns.reduce(
+    (total, addOn) =>
+      total + (planDuration === "month" ? addOn.price : addOn.price * 10),
+    planPrice
+  );
+
   const handleBackStepClick = () => {
     handleClick(3);
   };
 
-  const calculateTotalPrice = () => {
-    const addOnsTotalPrice = selectedAddOns.reduce(
-      (total, addOn) => total + addOn.price,
-      0
-    );
-
-    return addOnsTotalPrice + planPrice;
-  };
-
-  const totalPrice = calculateTotalPrice();
   return (
     <Box className={classes.container}>
       <Box>
@@ -48,43 +79,17 @@ const Step4 = ({ handleClick, handleFormData, plan, addOns, planDuration }) => {
               borderRadius: "5px",
             }}
           >
-            <Flex
-              justify="space-between"
-              style={{
-                borderBottom: "1px solid hsl(229, 24%, 87%)",
-                paddingBottom: "20px",
-              }}
-            >
-              <Box>
-                <p style={{ color: "hsl(213, 96%, 18%)", fontWeight: "bold" }}>
-                  {plan} ({planDuration === "month" ? "Monthly" : "Yearly"})
-                </p>
-                <p
-                  onClick={() => handleClick(2)}
-                  className={classes.change_button}
-                >
-                  Change
-                </p>
-              </Box>
-              <p style={{ color: "hsl(213, 96%, 18%)", fontWeight: "bold" }}>
-                ${planPrice}/{planDuration === "month" ? "mo" : "yr"}
-              </p>
-            </Flex>
-
-            <Flex direction="column" gap={10} mt={15}>
-              {selectedAddOns.map((addOn) => (
-                <Flex justify="space-between" key={addOn.name}>
-                  <p>{addOn.name}</p>
-                  <p style={{ color: "hsl(213, 96%, 18%)" }}>
-                    +$
-                    {planDuration === "month" ? addOn.price : addOn.price * 10}
-                    /mo
-                  </p>
-                </Flex>
-              ))}
-            </Flex>
+            <PlanDetails
+              plan={plan}
+              planDuration={planDuration}
+              planPrice={planPrice}
+              handleClick={handleClick}
+            />
+            <AddOnDetails
+              selectedAddOns={selectedAddOns}
+              planDuration={planDuration}
+            />
           </Box>
-
           <Flex justify="space-between" px={20}>
             <p>Total (per {planDuration === "month" ? "month" : "year"})</p>
             <p
@@ -99,7 +104,6 @@ const Step4 = ({ handleClick, handleFormData, plan, addOns, planDuration }) => {
           </Flex>
         </Box>
       </Box>
-
       <Box
         style={{
           display: "flex",
