@@ -42,47 +42,49 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <div className="sidebar-container">
-        {steps.map(({ step, title }) => (
-          <SidebarButton
-            key={step}
-            step={step}
-            title={title}
-            isActive={activeStep === step}
-            handleClick={() => handleClick(step)}
-          />
-        ))}
-      </div>
-      <div className="plan-container">
-        {activeStep === 1 && (
-          <Step1
-            handleClick={handleClick}
-            handleFormData={handleFormData}
-            {...formData}
-          />
-        )}
-        {activeStep === 2 && (
-          <Step2
-            handleClick={handleClick}
-            handleFormData={handleFormData}
-            {...formData}
-          />
-        )}
-        {activeStep === 3 && (
-          <Step3
-            handleClick={handleClick}
-            handleFormData={handleFormData}
-            {...formData}
-          />
-        )}
-        {activeStep === 4 && (
-          <Step4
-            handleClick={handleClick}
-            handleFormData={handleFormData}
-            {...formData}
-          />
-        )}
+    <div className="main-container">
+      <div className="container">
+        <div className="sidebar-container">
+          {steps.map(({ step, title }) => (
+            <SidebarButton
+              key={step}
+              step={step}
+              title={title}
+              isActive={activeStep === step}
+              handleClick={() => handleClick(step)}
+            />
+          ))}
+        </div>
+        <div className="plan-container">
+          {activeStep === 1 && (
+            <Step1
+              handleClick={handleClick}
+              handleFormData={handleFormData}
+              {...formData}
+            />
+          )}
+          {activeStep === 2 && (
+            <Step2
+              handleClick={handleClick}
+              handleFormData={handleFormData}
+              {...formData}
+            />
+          )}
+          {activeStep === 3 && (
+            <Step3
+              handleClick={handleClick}
+              handleFormData={handleFormData}
+              {...formData}
+            />
+          )}
+          {activeStep === 4 && (
+            <Step4
+              handleClick={handleClick}
+              handleFormData={handleFormData}
+              {...formData}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
