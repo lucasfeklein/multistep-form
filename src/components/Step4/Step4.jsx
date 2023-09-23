@@ -15,6 +15,17 @@ const Step4 = ({ handleClick, handleFormData, plan, addOns, planDuration }) => {
   const handleBackStepClick = () => {
     handleClick(3);
   };
+
+  const calculateTotalPrice = () => {
+    const addOnsTotalPrice = selectedAddOns.reduce(
+      (total, addOn) => total + addOn.price,
+      0
+    );
+
+    return addOnsTotalPrice + planPrice;
+  };
+
+  const totalPrice = calculateTotalPrice();
   return (
     <Box className={classes.container}>
       <Box>
@@ -83,7 +94,7 @@ const Step4 = ({ handleClick, handleFormData, plan, addOns, planDuration }) => {
                 fontWeight: "bold",
               }}
             >
-              +$12/mo
+              +${totalPrice}/mo
             </p>
           </Flex>
         </Box>
