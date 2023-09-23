@@ -97,10 +97,11 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
       <Box
         style={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           marginBottom: "20px",
         }}
       >
+        <p></p>
         <Button onClick={handleNextStepClick} className={classes.next_button}>
           Next Step
         </Button>
