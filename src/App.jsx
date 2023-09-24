@@ -4,6 +4,11 @@ import SidebarButton from "./components/SidebarButton";
 import { steps } from "./utils/variables";
 
 function App() {
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
   const [activeStep, setActiveStep] = useState(1);
   const [formData, setFormData] = useState({
     email: "",
@@ -33,12 +38,38 @@ function App() {
     ],
   });
 
+  // Function to validate email format
+  const isValidEmail = (email) => {
+    // Use a regular expression to validate email format
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  };
+
   const handleFormData = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
 
   const handleClick = (step) => {
-    setActiveStep(step);
+    // Validate the form before proceeding to the next step
+    const newFormErrors = {};
+    if (!formData.name) {
+      newFormErrors.name = "This field is required";
+    }
+    if (!formData.email) {
+      newFormErrors.email = "This field is required";
+    } else if (!isValidEmail(email)) {
+      newFormErrors.email = "Email not valid";
+    }
+    if (!formData.phone) {
+      newFormErrors.phone = "This field is required";
+    }
+
+    // If there are errors, set them in the formErrors state
+    if (Object.keys(newFormErrors).length > 0) {
+      setFormErrors(newFormErrors);
+    } else {
+      setActiveStep(step);
+    }
   };
 
   return (
@@ -61,6 +92,7 @@ function App() {
               handleClick={handleClick}
               handleFormData={handleFormData}
               {...formData}
+              formErrors={formErrors}
             />
           )}
           {activeStep === 2 && (

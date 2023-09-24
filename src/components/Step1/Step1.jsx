@@ -2,41 +2,10 @@ import { Box, Button, Text, TextInput, Title } from "@mantine/core";
 import React, { useState } from "react";
 import classes from "./Step1.module.css";
 
-const Step1 = ({ handleClick, handleFormData, name, phone, email }) => {
-  const [formErrors, setFormErrors] = useState({
-    name: "",
-    email: "",
-    phone: "",
-  });
-
-  // Function to validate email format
-  const isValidEmail = (email) => {
-    // Use a regular expression to validate email format
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    return emailRegex.test(email);
-  };
+const Step1 = ({ handleClick, handleFormData, name, phone, email, formErrors }) => {
 
   const handleNextStepClick = () => {
-    // Validate the form before proceeding to the next step
-    const newFormErrors = {};
-    if (!name) {
-      newFormErrors.name = "This field is required";
-    }
-    if (!email) {
-      newFormErrors.email = "This field is required";
-    } else if (!isValidEmail(email)) {
-      newFormErrors.email = "Email not valid";
-    }
-    if (!phone) {
-      newFormErrors.phone = "This field is required";
-    }
-
-    // If there are errors, set them in the formErrors state
-    if (Object.keys(newFormErrors).length > 0) {
-      setFormErrors(newFormErrors);
-    } else {
       handleClick(2);
-    }
   };
 
   return (
