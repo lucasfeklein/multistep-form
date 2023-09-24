@@ -33,3 +33,9 @@
 .change_button:hover {
   color: hsl(243, 100%, 62%);
 }
+
+@media (max-width: 800px) {
+  .container {
+    padding-top: 0;
+  }
+}
