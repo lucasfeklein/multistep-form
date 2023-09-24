@@ -1,5 +1,5 @@
 import { Box, Button, Text, TextInput, Title } from "@mantine/core";
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Step1.module.css";
 
 const Step1 = ({
