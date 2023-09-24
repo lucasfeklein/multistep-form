@@ -57,7 +57,7 @@ function App() {
     }
     if (!formData.email) {
       newFormErrors.email = "This field is required";
-    } else if (!isValidEmail(email)) {
+    } else if (!isValidEmail(formData.email)) {
       newFormErrors.email = "Email not valid";
     }
     if (!formData.phone) {
