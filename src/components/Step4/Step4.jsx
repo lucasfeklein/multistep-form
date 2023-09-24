@@ -11,10 +11,6 @@ const planPrices = {
 const PlanDetails = ({ plan, planDuration, planPrice, handleClick }) => (
   <Flex
     justify="space-between"
-    style={{
-      borderBottom: "1px solid hsl(229, 24%, 87%)",
-      paddingBottom: "20px",
-    }}
   >
     <Box>
       <p style={{ color: "hsl(213, 96%, 18%)", fontWeight: "bold" }}>
@@ -31,7 +27,7 @@ const PlanDetails = ({ plan, planDuration, planPrice, handleClick }) => (
 );
 
 const AddOnDetails = ({ selectedAddOns, planDuration }) => (
-  <Flex direction="column" gap={10} mt={15}>
+  <Flex direction="column" gap={10} mt={15} pt={20} style={{borderTop: "1px solid hsl(229, 24%, 87%)",}}>
     {selectedAddOns.map((addOn) => (
       <Flex justify="space-between" key={addOn.name}>
         <p>{addOn.name}</p>
@@ -85,10 +81,10 @@ const Step4 = ({ handleClick, plan, addOns, planDuration }) => {
               planPrice={planPrice}
               handleClick={handleClick}
             />
-            <AddOnDetails
+            {selectedAddOns.length > 0 && <AddOnDetails
               selectedAddOns={selectedAddOns}
               planDuration={planDuration}
-            />
+            />}
           </Box>
           <Flex justify="space-between" px={20}>
             <p>Total (per {planDuration === "month" ? "month" : "year"})</p>
