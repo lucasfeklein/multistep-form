@@ -89,10 +89,15 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 800px) {
+.main-container {
+  align-items: start;
+}
+
   .container {
     flex-direction: column;
     width: 90vw;
     height: auto;
+    margin-top: 150px;
   }
 
   .sidebar-container {
