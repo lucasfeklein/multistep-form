@@ -9,9 +9,7 @@ const planPrices = {
 };
 
 const PlanDetails = ({ plan, planDuration, planPrice, handleClick }) => (
-  <Flex
-    justify="space-between"
-  >
+  <Flex justify="space-between">
     <Box>
       <p style={{ color: "hsl(213, 96%, 18%)", fontWeight: "bold" }}>
         {plan} ({planDuration === "month" ? "Monthly" : "Yearly"})
@@ -27,7 +25,13 @@ const PlanDetails = ({ plan, planDuration, planPrice, handleClick }) => (
 );
 
 const AddOnDetails = ({ selectedAddOns, planDuration }) => (
-  <Flex direction="column" gap={10} mt={15} pt={20} style={{borderTop: "1px solid hsl(229, 24%, 87%)",}}>
+  <Flex
+    direction="column"
+    gap={10}
+    mt={15}
+    pt={20}
+    style={{ borderTop: "1px solid hsl(229, 24%, 87%)" }}
+  >
     {selectedAddOns.map((addOn) => (
       <Flex justify="space-between" key={addOn.name}>
         <p>{addOn.name}</p>
@@ -51,6 +55,10 @@ const Step4 = ({ handleClick, plan, addOns, planDuration }) => {
 
   const handleBackStepClick = () => {
     handleClick(3);
+  };
+
+  const handleConfirmClick = () => {
+    handleClick(5);
   };
 
   return (
@@ -81,10 +89,12 @@ const Step4 = ({ handleClick, plan, addOns, planDuration }) => {
               planPrice={planPrice}
               handleClick={handleClick}
             />
-            {selectedAddOns.length > 0 && <AddOnDetails
-              selectedAddOns={selectedAddOns}
-              planDuration={planDuration}
-            />}
+            {selectedAddOns.length > 0 && (
+              <AddOnDetails
+                selectedAddOns={selectedAddOns}
+                planDuration={planDuration}
+              />
+            )}
           </Box>
           <Flex justify="space-between" px={20}>
             <p>Total (per {planDuration === "month" ? "month" : "year"})</p>
@@ -104,7 +114,9 @@ const Step4 = ({ handleClick, plan, addOns, planDuration }) => {
         <Button onClick={handleBackStepClick} className={classes.back_button}>
           Go Back
         </Button>
-        <Button className={classes.next_button}>Confirm</Button>
+        <Button onClick={handleConfirmClick} className={classes.next_button}>
+          Confirm
+        </Button>
       </Box>
     </Box>
   );

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Step1, Step2, Step3, Step4 } from "./components";
 import SidebarButton from "./components/SidebarButton";
+import Thanks from "./components/Thanks/Thanks";
 import { steps } from "./utils/variables";
 
 function App() {
@@ -116,6 +117,7 @@ function App() {
               {...formData}
             />
           )}
+          {activeStep === 5 && <Thanks />}
         </div>
       </div>
     </div>
