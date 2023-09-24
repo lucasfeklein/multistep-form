@@ -2,10 +2,16 @@ import { Box, Button, Text, TextInput, Title } from "@mantine/core";
 import React, { useState } from "react";
 import classes from "./Step1.module.css";
 
-const Step1 = ({ handleClick, handleFormData, name, phone, email, formErrors }) => {
-
+const Step1 = ({
+  handleClick,
+  handleFormData,
+  name,
+  phone,
+  email,
+  formErrors,
+}) => {
   const handleNextStepClick = () => {
-      handleClick(2);
+    handleClick(2);
   };
 
   return (
@@ -24,9 +30,9 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email, formErrors }) 
             label="Name"
             placeholder="John Doe"
             type="text"
-            error={Boolean(formErrors.name)}
+            error={Boolean(formErrors.name && !name)}
           />
-          {formErrors.name && (
+          {formErrors.name && !name && (
             <Box className={classes.error_message}>{formErrors.name}</Box>
           )}
         </Box>
@@ -40,13 +46,13 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email, formErrors }) 
             label="Email Address"
             placeholder="example@example.com"
             type="email"
-            error={Boolean(formErrors.email)}
+            error={Boolean(formErrors.email && !email)}
           />
-          {formErrors.email && (
+          {formErrors.email && !email && (
             <Box className={classes.error_message}>{formErrors.email}</Box>
           )}
         </Box>
-        <div style={{ position: "relative" }}>
+        <Box style={{ position: "relative" }}>
           <TextInput
             mt={15}
             name="phone"
@@ -56,12 +62,12 @@ const Step1 = ({ handleClick, handleFormData, name, phone, email, formErrors }) 
             label="Phone Number"
             placeholder="1 234 567 890"
             type="number"
-            error={Boolean(formErrors.phone)}
+            error={Boolean(formErrors.phone && !phone)}
           />
-          {formErrors.phone && (
+          {formErrors.phone && !phone && (
             <Box className={classes.error_message}>{formErrors.phone}</Box>
           )}
-        </div>
+        </Box>
       </Box>
       <Box className="travel-steps-container">
         <p></p>
