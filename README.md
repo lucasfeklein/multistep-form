@@ -6,6 +6,10 @@ An advanced Frontend challenge fully responsive from Frontend Mentor to keep pra
 
 [https://sage-bubblegum-9ac6f7.netlify.app](https://sage-bubblegum-9ac6f7.netlify.app)
 
-## Preview
+## Desktop preview
 
-![Desktop](./desktop-image.png)
+![Desktop](./public/desktop-image.png)
+
+## Mobile preview
+
+![Mobile](./public/mobile-image.png)
