@@ -12,4 +12,4 @@ An advanced Frontend challenge fully responsive from Frontend Mentor to keep pra
 
 ## Mobile preview
 
-![Mobile](./public/mobile-image.png)
+![Mobile](./public/mobile-image.png){width: 400px;}
