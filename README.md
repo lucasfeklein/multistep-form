@@ -8,4 +8,4 @@ An advanced Frontend challenge fully responsive from Frontend Mentor to keep pra
 
 ## Preview
 
-![Alt text](https://github.com/lucasfeklein/multistep-form/blob/main/src/assets/react.svg)
+![Desktop](./desktop-image.png)
